@@ -55,14 +55,10 @@ class Monster
 
           :evo_used_by         => :string
 
-  def shown_columns
-    [:number, :name]
-  end
-
   def as_json(options = {})
-    {
-      name: name
-    }
-
+    columns.reduce({}) do |hash, column|
+      hash[column] = send(column)
+      hash
+    end
   end
 end

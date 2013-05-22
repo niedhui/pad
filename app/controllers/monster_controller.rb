@@ -25,7 +25,11 @@ class MonsterController < UIViewController
     url = NSURL.fileURLWithPath(path)
     request = NSURLRequest.requestWithURL(url)
     @web_view.loadRequest(request)
+  end
 
+  def webViewDidFinishLoad(web_view)
+    js = "setMonster(#{BW::JSON.generate(monster.as_json)})"
+    web_view.stringByEvaluatingJavaScriptFromString js
   end
 
 end

@@ -58,4 +58,11 @@ class Monster
   def shown_columns
     [:number, :name]
   end
+
+  def as_json(options = {})
+    {
+      name: name
+    }
+
+  end
 end

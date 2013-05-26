@@ -32,7 +32,7 @@ class MonsterGroupsController < UIViewController
 
   def row_title(monster_number)
     start = (monster_number.to_i / (per_section + 1)) * per_section + 1
-    "#{start} - #{start + per_section - 1}"
+    "#{start.to_s.rjust(3,'0')} - #{(start + per_section - 1).to_s.rjust(3,'0')}"
   end
 
 end

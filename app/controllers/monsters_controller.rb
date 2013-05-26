@@ -26,6 +26,8 @@ class MonstersController < UIViewController
     cell ||= UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier: @reuse_identifier)
     monster = monsters[index_path.row]
     cell.textLabel.text = monster.name
+    avatar = UIImage.imageNamed("monster_images/#{monster.number}/avatar40.png")
+    cell.imageView.image = avatar
     cell
   end
 
